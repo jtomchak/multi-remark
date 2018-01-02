@@ -1,17 +1,26 @@
 {
   "name": "multi-remark",
   "version": "1.0.0",
-  "description": "For creating a project to host & build multiple remark slide presentations",
+  "description":
+    "CLI for creating a project to host & build multiple remark slide presentations",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtomchak/multi-remark.git"
+  },
   "bin": {
     "create-slide-deck": "index.js"
   },
-  "keywords": [],
+  "keywords": ["remark", "markdown", "cli", "slides"],
   "author": "Jesse Tomchak",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jtomchak/multi-remark/issues"
+  },
+  "homepage": "https://github.com/jtomchak/multi-remark#readme",
   "dependencies": {
     "remark": "^8.0.0"
   },
