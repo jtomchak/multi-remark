@@ -8,10 +8,12 @@ Version : 1.0
 //Module Dependencies
 var fs = require("fs-extra");
 var child_process = require("child_process");
+const chalk = require("chalk");
+const log = console.log;
+const error = chalk.bold.red;
 
 module.exports = {
   generate: function(deckName) {
-    console.log(deckName);
     if (deckName !== undefined && deckName !== "") {
       //Multi-Deck Generator
       //Create directory with the user's given deck name on the current cli path
@@ -38,13 +40,17 @@ module.exports = {
                   "./" + deckName + "",
                   function(err) {
                     if (err) {
-                      console.error(err);
+                      log(error(err));
                     } else {
-                      console.log("Building new Deck " + deckName);
-                      console.log("success!");
-                      console.log("Your Multi-Slide Deck is ready!");
-                      console.log("cd into " + deckName);
-                      console.log("run `npm install && npm start`");
+                      log(chalk`
+Building new Deck {bold ${deckName}}
+{green Success!}
+Your Multi-Slide Deck is ready!
+
+
+cd into {bold ${deckName}}
+run {green npm install && npm start}
+`);
                     }
                   }
                 );
@@ -53,6 +59,8 @@ module.exports = {
           );
         }
       });
+    } else {
+      log(error("We gotta have a deck name!!"));
     }
   }
 };

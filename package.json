@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/jtomchak/multi-remark#readme",
   "dependencies": {
+    "chalk": "^2.3.0",
     "remark": "^8.0.0"
   },
   "devDependencies": {

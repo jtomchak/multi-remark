@@ -157,6 +157,5 @@ function createTOC() {
     err
   ) {
     if (err) throw err;
-    console.log("Updated!");
   });
 }
