@@ -1,0 +1,26 @@
+{
+  "name": "multi-remark",
+  "version": "1.0.0",
+  "description": "For creating a project to host & build multiple remark slide presentations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-slide-deck": "index.js"
+  },
+  "keywords": [],
+  "author": "Jesse Tomchak",
+  "license": "ISC",
+  "dependencies": {
+    "remark": "^8.0.0"
+  },
+  "devDependencies": {
+    "berber": "^1.1.4",
+    "fs-extra": "^5.0.0",
+    "gulp-rename": "^1.2.2",
+    "layout1": "^1.1.0",
+    "nunjucks": "^3.0.1",
+    "require-yaml": "0.0.1"
+  }
+}
