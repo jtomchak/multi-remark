@@ -54,7 +54,7 @@ const defaultConfig = {
   title: "",
   port: 8080,
   dest: "build",
-  source: "decks",
+  source: "slides",
   slides: [],
   css: defaultCss,
   cssFiles: [],
