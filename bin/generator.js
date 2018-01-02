@@ -40,9 +40,9 @@ module.exports = {
                     if (err) {
                       console.error(err);
                     } else {
-                      console.log("Building new Course " + deckName);
+                      console.log("Building new Deck " + deckName);
                       console.log("success!");
-                      console.log("Your Multi-Deck Course is ready!");
+                      console.log("Your Multi-Slide Deck is ready!");
                       console.log("cd into " + deckName);
                       console.log("run `npm install && npm start`");
                     }

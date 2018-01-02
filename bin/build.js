@@ -9,7 +9,7 @@ const path = require("path");
 require("require-yaml");
 
 const layoutFilename = path.join(__dirname, "layout.njk");
-const indexFilename = path.join(__dirname, "indexLayout.njk");
+const tocFilename = path.join(__dirname, "toc.njk");
 
 const defaultCss = `
 body {
@@ -57,6 +57,7 @@ const defaultConfig = {
   source: "slides",
   slides: [],
   css: defaultCss,
+  indexcss: defaultCss,
   cssFiles: [],
   script: "",
   scriptFiles: [],
@@ -69,13 +70,27 @@ name("multi-remark");
 
 on("config", config => {
   config = Object.assign({}, defaultConfig, config);
-  let deckSource = path.join(__dirname, config.source);
 
+  //Create index with Table of Contents TOC in build folder
+  createTOC();
   //Create an array of all the files *.md listed in Config Source
   config.slides = fileList(config.source);
   port(config.port);
   dest(config.dest);
   asset(config.remarkPath).pipe(rename("remark.js"));
+
+  asset(path.join("./build", "index.html")).pipe(
+    layout1.nunjucks(tocFilename, {
+      data: {
+        css: config.css,
+        slideItems: config.slides
+          .map(
+            slide => `<li><a href="./${slide.name}.html">${slide.name}</a></li>`
+          )
+          .join("\n")
+      }
+    })
+  );
 
   config.slides.forEach(slide => {
     asset(path.join(config.source, slide.base))
@@ -117,7 +132,7 @@ on("config", config => {
   });
 });
 
-debugPagePath("__multi-remarker__");
+debugPagePath("__multi-remark__");
 
 function fileList(dir) {
   return fs.readdirSync(dir).reduce(function(list, file) {
@@ -130,5 +145,18 @@ function fileList(dir) {
   }, []);
 }
 
-// README for default notes and instructions
-//
+const buildPath = "./build";
+
+function createTOC() {
+  try {
+    fs.mkdirSync(buildPath);
+  } catch (err) {
+    if (err.code !== "EEXIST") throw err;
+  }
+  fs.appendFile(path.join("./build", "index.html"), "<!DOCTYPE html>", function(
+    err
+  ) {
+    if (err) throw err;
+    console.log("Updated!");
+  });
+}
