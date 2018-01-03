@@ -27,14 +27,13 @@
   "homepage": "https://github.com/jtomchak/multi-remark#readme",
   "dependencies": {
     "chalk": "^2.3.0",
-    "remark": "^8.0.0"
-  },
-  "devDependencies": {
+    "remark": "^8.0.0",
     "berber": "^1.1.4",
     "fs-extra": "^5.0.0",
     "gulp-rename": "^1.2.2",
     "layout1": "^1.1.0",
     "nunjucks": "^3.0.1",
     "require-yaml": "0.0.1"
-  }
+  },
+  "devDependencies": {}
 }
