@@ -14,6 +14,7 @@ const error = chalk.bold.red;
 
 module.exports = {
   generate: function(deckName) {
+    console.log(deckName);
     if (deckName !== undefined && deckName !== "") {
       //Multi-Deck Generator
       //Create directory with the user's given deck name on the current cli path

@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "multi-remark build",
-    "start": "multi-remark serve"
+    "build": "./node_modules/multi-remark/bin/build.js build",
+    "start": "./node_modules/multi-remark/bin/build.js serve"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "gulp-rename": "^1.2.2",
     "layout1": "^1.1.0",
     "nunjucks": "^3.0.1",
-    "require-yaml": "0.0.1"
+    "require-yaml": "0.0.1",
+    "multi-remark": "^1.0.3"
   }
 }
