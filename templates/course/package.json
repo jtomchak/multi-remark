@@ -17,6 +17,6 @@
     "layout1": "^1.1.0",
     "nunjucks": "^3.0.1",
     "require-yaml": "0.0.1",
-    "multi-remark": "^1.0.3"
+    "multi-remark": "^1.0.4"
   }
 }
